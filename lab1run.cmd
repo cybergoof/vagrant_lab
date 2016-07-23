@@ -21,7 +21,9 @@ echo ""
 
 # Reference http://devblog.appriver.com/capture-network-packets-from-virtualbox/
 
-'c:\Program Files\Oracle\VirtualBox\VboxManage.exe' modifyvm dvwa --nictrace1 on --nictracefile1 c:\temp\dvwa.pcap
+# Need to rename the name of the VM to dvwa
+
+VboxManage modifyvm dvwa --nictrace1 on --nictracefile1 c:\temp\dvwa.pcap
 
 # Need to start the VM through Oracle's VirtualBox
 # This is a significant problem with the network collection
