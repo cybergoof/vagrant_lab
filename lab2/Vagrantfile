@@ -1,0 +1,17 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+    config.vm.box = "Metasploitable2"
+    config.vm.box_url = "package.box"
+    config.ssh.username = "msfadmin"
+    config.ssh.password = "msfadmin"
+#    config.vm.guest = "ubuntu"
+ config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--cpus", "1"]   
+  end  
+  config.push.define "atlas" do |push|
+    push.app = "cybergoof/metasploitable2"
+  end
+end    
